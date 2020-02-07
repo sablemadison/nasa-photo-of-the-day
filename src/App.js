@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import "./App.css";
 import axios from 'axios';
-
+import MainPhoto from './mainPhoto'
 function App() {
 
   const [photo, setPhoto] = useState('');
@@ -12,20 +12,15 @@ function App() {
     axiosData
     .then(dataObj => {
       console.log('data here:', dataObj)
-      console.log('url here', dataObj.data.url)
+      
       setPhoto(dataObj.data.url)
-      console.log('photo url:', photo)
     })
     .catch(error => {
       console.log('error message:', error)
     })
   }, [])
   return (
-    <div className="App">
-      <p>
-        
-      </p>
-    </div>
+    <MainPhoto photo={photo}/>
   );
 }
 
